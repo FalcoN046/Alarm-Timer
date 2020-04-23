@@ -1,0 +1,34 @@
+import time  
+from pygame import mixer
+import winsound  as ws 
+
+mixer.init()
+mixer.music.load('E:\MUSIC\pirates.mp3')
+mixer.music.set_volume(0.9)
+
+print(" BY FALCON") 
+def myAlarm(): 
+    
+    myTime = list(map(int, input("Enter time in hr min sec\n").split())) 
+    if len(myTime)==3: 
+        total_seconds=myTime[0]*60*60+myTime[1]*60+myTime[2] 
+        time.sleep(total_seconds) 
+
+        mixer.music.play()
+        print('press p  to pause  r to resume')
+        print('e to exit ')
+        query = input(">>>")
+        
+        if query == 'p':
+            mixer.music.pause()
+        elif query == 'r':
+            mixer.music.unpause()
+        elif query == 'e':
+            mixer.music.stop()
+
+    else: 
+        print("Please enter time in correct format as mentioned\n") 
+             
+
+                
+myAlarm()
